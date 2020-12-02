@@ -1,0 +1,17 @@
+16:34:34.110 [main] INFO  org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:55) - Starting ElasticsearchApplication using Java 1.8.0_261 on LAPTOP-JKCJIRCF with PID 22676 (D:\WorkSoftware\workplace\elasticsearch\target\classes started by fuwenrui in D:\WorkSoftware\workplace\elasticsearch)
+16:34:34.119 [main] INFO  org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:660) - No active profile set, falling back to default profiles: default
+16:34:35.373 [main] INFO  org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) - Initializing ProtocolHandler ["http-nio-8080"]
+16:34:35.374 [main] INFO  org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) - Starting service [Tomcat]
+16:34:35.374 [main] INFO  org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) - Starting Servlet engine: [Apache Tomcat/9.0.39]
+16:34:35.463 [main] INFO  org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) - Initializing Spring embedded WebApplicationContext
+16:34:36.844 [main] INFO  springfox.documentation.spring.web.WebMvcPropertySourcedRequestMappingHandlerMapping.initHandlerMethods(WebMvcPropertySourcedRequestMappingHandlerMapping.java:69) - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+16:34:37.010 [main] INFO  com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure.dataSource(DruidDataSourceAutoConfigure.java:56) - Init DruidDataSource
+16:34:37.358 [main] INFO  com.alibaba.druid.pool.DruidDataSource.init(DruidDataSource.java:1003) - {dataSource-1} inited
+16:34:37.488 [main] INFO  org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) - Starting ProtocolHandler ["http-nio-8080"]
+16:34:37.503 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.start(DocumentationPluginsBootstrapper.java:93) - Documentation plugins bootstrapped
+16:34:37.507 [main] INFO  springfox.documentation.spring.web.plugins.AbstractDocumentationPluginsBootstrapper.bootstrapDocumentationPlugins(AbstractDocumentationPluginsBootstrapper.java:79) - Found 1 custom documentation plugin(s)
+16:34:37.536 [main] INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner.scan(ApiListingReferenceScanner.java:44) - Scanning for api listing references
+16:34:37.629 [main] INFO  springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator.startingWith(CachingOperationNameGenerator.java:41) - Generating unique operation named: insertUsingGET_1
+16:34:37.630 [main] INFO  springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator.startingWith(CachingOperationNameGenerator.java:41) - Generating unique operation named: updateUsingGET_1
+16:34:37.642 [main] INFO  org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:61) - Started ElasticsearchApplication in 3.948 seconds (JVM running for 5.128)
+16:34:40.378 [http-nio-8080-exec-1] INFO  org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173) - Initializing Spring DispatcherServlet 'dispatcherServlet'
