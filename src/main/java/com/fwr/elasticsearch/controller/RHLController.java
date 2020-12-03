@@ -5,6 +5,7 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.fwr.elasticsearch.entity.AjaxResult;
 import com.fwr.elasticsearch.entity.Book;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.lucene.search.join.ScoreMode;
 import org.elasticsearch.action.DocWriteResponse;
 import org.elasticsearch.action.bulk.BulkItemResponse;
 import org.elasticsearch.action.bulk.BulkRequest;
@@ -14,6 +15,7 @@ import org.elasticsearch.action.delete.DeleteResponse;
 import org.elasticsearch.action.index.IndexRequest;
 import org.elasticsearch.action.index.IndexResponse;
 import org.elasticsearch.action.search.SearchRequest;
+import org.elasticsearch.action.search.SearchRequestBuilder;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.action.update.UpdateRequest;
 import org.elasticsearch.action.update.UpdateResponse;
@@ -24,6 +26,8 @@ import org.elasticsearch.common.xcontent.XContentType;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.index.reindex.BulkByScrollResponse;
+import org.elasticsearch.index.reindex.DeleteByQueryRequest;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
@@ -93,8 +97,11 @@ public class RHLController {
     @GetMapping("/delete")
     public void delete() {
         DeleteRequest deleteRequest = new DeleteRequest("book","10");
+//        DeleteByQueryRequest deleteByQueryRequest = new DeleteByQueryRequest("book");
+//        deleteByQueryRequest.setQuery(QueryBuilders.matchAllQuery());
         try {
             DeleteResponse response = restHighLevelClient.delete(deleteRequest, RequestOptions.DEFAULT);
+//            BulkByScrollResponse bulkByScrollResponse = restHighLevelClient.deleteByQuery(deleteByQueryRequest, RequestOptions.DEFAULT);
             System.out.println(response);
         } catch (IOException e) {
             e.printStackTrace();
@@ -139,6 +146,8 @@ public class RHLController {
         SearchRequest searchRequest = new SearchRequest("book");
         SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
         searchSourceBuilder.query(QueryBuilders.termQuery("name","测试"))
+                //查询book内部user对象的字段使用nested嵌套查询，scoreMode用于计算根文档的分数策略
+                //.query(QueryBuilders.nestedQuery("user",QueryBuilders.matchAllQuery(), ScoreMode.Avg))
                 .postFilter(QueryBuilders.matchAllQuery())
                 .sort("id", SortOrder.DESC)
                 .from(0)
